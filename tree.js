@@ -16,23 +16,21 @@ Tree.prototype.add = function(data) {
     const searchTree = function(node) {
       if (data < node.data) {
         if (node.left === null) {
-          const node = new Node(data);
-          node.left = node;
+          node.left = new Node(data);
           return;
         } else if (node.left !== null) {
           return searchTree(node.left);
         }
       } else if (data > node.data) {
         if (node.right === null) {
-          const node = new Node(data);
-          node.right = node;
+          node.right = new Node(data);
           return;
         } else if (node.right !== null) {
           return searchTree(node.right);
         }
       } else return null;
     };
-    searchTree(this.root);
+    return searchTree(this.root);
   }
 };
 
@@ -48,4 +46,4 @@ bst.add(1);
 bst.add(2);
 bst.add(3);
 
-console.log(bst.left.data);
+console.log(bst.root.right.data);
