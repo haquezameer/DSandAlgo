@@ -53,7 +53,7 @@ function Trie() {
         }
       } else string.length > 0 ? words.push(string) : undefined;
     };
-    search(fromNode, new String(""));
+    search(fromNode, new String());
     return words;
   };
 
@@ -69,7 +69,7 @@ function Trie() {
     };
     const endNode = findEnd(this.root, word);
     const sugg = this.print(endNode);
-    return sugg;
+    return sugg.map(str => word + str);
   };
 }
 
@@ -79,6 +79,6 @@ myTrie.add("web");
 myTrie.add("webdev");
 myTrie.add("webart");
 console.log(myTrie.search("web"));
-const node = myTrie.suggest("web");
+const node = myTrie.suggest("we");
 console.log(node);
 // FIXME: prevent adding empty string
