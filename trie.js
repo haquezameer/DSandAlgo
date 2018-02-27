@@ -53,7 +53,7 @@ function Trie() {
         }
       } else string.length > 0 ? words.push(string) : undefined;
     };
-    search(fromNode, new String());
+    search(fromNode, new String(""));
     return words;
   };
 
@@ -81,3 +81,4 @@ myTrie.add("webart");
 console.log(myTrie.search("web"));
 const node = myTrie.suggest("web");
 console.log(node);
+// FIXME: prevent adding empty string
